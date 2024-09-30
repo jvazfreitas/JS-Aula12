@@ -3,35 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor de Câmbio</title>
+    <title>Joias Épicas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Conversor de Câmbio</h1>
-        
-        <label for="valor">Valor:</label>
-        <input type="number" id="valor" placeholder="Digite o valor" step="0.01">
-        
-        <label for="moedaOrigem">Moeda de Origem:</label>
-        <select id="moedaOrigem"></select>
-        
-        <label for="moedaDestino">Moeda de Destino:</label>
-        <select id="moedaDestino"></select>
-        
-        <button id="converter">Converter</button>
-        
-        <h2>Resultado:</h2>
-        <p id="resultado"></p>
+    <header>
+        <h1>Joias Épicas</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#colecoes">Coleções</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div id="carrinho">
+            Carrinho: <span id="contador-carrinho">0</span> itens
+        </div>
+    </header>
 
-        <h2>Cálculo da Taxa de Importação</h2>
-        <label for="paisImportacao">Escolha o País:</label>
-        <select id="paisImportacao"></select>
+    <main>
+        <section id="home" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image1.jpg" class="d-block w-100" alt="Imagem 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" class="d-block w-100" alt="Imagem 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" class="d-block w-100" alt="Imagem 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="image4.jpg" class="d-block w-100" alt="Imagem 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="image5.jpg" class="d-block w-100" alt="Imagem 5">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#home" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#home" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </section>
 
-        <button id="calcularTaxa">Calcular Taxa de Importação</button>
-        <p id="resultadoTaxa"></p>
-    </div>
+        <section id="colecoes">
+            <h2>Coleções</h2>
+            <label for="filtro">Filtrar por:</label>
+            <select id="filtro" onchange="filtrarProdutos()">
+                <option value="todos">Todos</option>
+                <option value="viking">Viking</option>
+                <option value="samurai">Samurai</option>
+            </select>
+            <div id="produtos">
+                <div class="produto viking">
+                    <h3>Colar Nórdico com Runa</h3>
+                    <p>R$199,00</p>
+                    <button onclick="adicionarAoCarrinho('Colar Nórdico com Runa')">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto samurai">
+                    <h3>Anel Samurai com Dragão</h3>
+                    <p>R$159,00</p>
+                    <button onclick="adicionarAoCarrinho('Anel Samurai com Dragão')">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
 
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Inspirados pela rica cultura viking e samurai, nossas joias são feitas com materiais de alta qualidade.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="notificacao" class="notificacao"></div>
+
+    <footer>
+        <p>&copy; 2024 Joias Épicas. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="tarefa.js"></script>
 </body>
 </html>
